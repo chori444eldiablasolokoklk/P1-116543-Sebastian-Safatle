@@ -44,3 +44,16 @@ class Serie {
     return card;
   }
 }
+  static guardarSerie(serie) {
+    const guardadas = JSON.parse(localStorage.getItem("series") || "[]");
+ 
+    if (guardadas.some((s) => s.id === serie.id)) {
+      alert("La serie ya estaba guardada");
+      return;
+    }
+ 
+    guardadas.push(JSON.parse(serie.toJsonString()));
+    localStorage.setItem("series", JSON.stringify(guardadas));
+    alert("Serie guardada");
+  }
+}
