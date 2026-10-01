@@ -1,0 +1,32 @@
+/* 2a. main como grilla de 2 filas x 2 columnas */
+main {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  grid-template-rows: auto 1fr;
+  gap: 12px;
+}
+header {
+  grid-column: 1 / 3;
+  grid-row: 1;
+}
+nav#panel-izquierda {
+  grid-column: 1;
+  grid-row: 2;
+}
+section#principal {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+/* 2b. series en 4 columnas */
+#series {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+@media (max-width: 900px) {
+  #series { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 550px) {
+  #series { grid-template-columns: 1fr; }
+}
